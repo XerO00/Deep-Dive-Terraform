@@ -16,6 +16,9 @@ $env:CONSUL_HTTP_TOKEN="SECRETID_VALUE"
 consul acl token create -policy-name=networking -description="Jenkins networking"
 consul acl token create -policy-name=applications -description="Jenkins applications"
 
+SecretID:         4f0bfe6a-db4e-6eb7-171f-386bd29e182c
+SecretID:         7ed2134e-586a-6f68-7924-627bf446b994
+
 # Make note of SecretID for later
 
 # Create a Jenkins container

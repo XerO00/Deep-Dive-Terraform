@@ -1,7 +1,7 @@
 {
     "asg_instance_size": "t2.micro",
     "asg_max_size": "5",
-    "asg_min_size": "2",
+    "asg_min_size": "1",
     "rds_storage_size": "5",
     "rds_engine": "mysql",
     "rds_version": "5.6.37",

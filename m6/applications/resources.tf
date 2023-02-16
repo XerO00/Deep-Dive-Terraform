@@ -22,7 +22,6 @@ terraform {
 ##################################################################################
 
 provider "aws" {
-  profile = "deep-dive"
   region  = var.region
 }
 
@@ -188,7 +187,7 @@ resource "aws_cloudwatch_metric_alarm" "scale_down_alarm" {
 
 resource "aws_db_subnet_group" "db_subnet_group" {
   name       = "${terraform.workspace}-ddt-rds-subnet-group"
-  subnet_ids = data.terraform_remote_state.networking.outputs.private_subnets
+  subnet_ids = data.terraform_remote_state.networking.outputs.public_subnets
 }
 
 resource "aws_db_instance" "rds" {

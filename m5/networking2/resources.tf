@@ -20,7 +20,6 @@ terraform {
 ##################################################################################
 
 provider "aws" {
-  profile = "deep-dive"
   region  = var.region
 }
 
@@ -65,19 +64,13 @@ locals {
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "~>2.0"
-
   name = "globo-primary"
-
   cidr            = local.cidr_block
   azs             = slice(data.aws_availability_zones.available.names, 0, local.subnet_count)
-  private_subnets = data.template_file.private_cidrsubnet.*.rendered
+  # private_subnets = data.template_file.private_cidrsubnet.*.rendered
   public_subnets  = data.template_file.public_cidrsubnet.*.rendered
-
-  enable_nat_gateway = true
-
+  enable_nat_gateway = false
   create_database_subnet_group = false
-
-
   tags = local.common_tags
 }
 

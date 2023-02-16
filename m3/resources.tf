@@ -16,7 +16,6 @@ terraform {
 ##################################################################################
 
 provider "aws" {
-  profile = "deep-dive"
   region  = var.region
 }
 
@@ -35,7 +34,7 @@ module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "~>2.0"
 
-  name = "globo-primary"
+  name = "toolchain-primary"
 
   cidr            = var.cidr_block
   azs             = slice(data.aws_availability_zones.available.names, 0, var.subnet_count)
@@ -46,15 +45,7 @@ module "vpc" {
 
   create_database_subnet_group = false
 
-
   tags = {
     Environment = "Production"
-    Team        = "Network"
   }
 }
-
-
-
-
-
-
