@@ -63,36 +63,36 @@ resource "aws_security_group" "webapp_outbound_sg" {
   })
 }
 
-resource "aws_security_group" "rds_sg" {
-  name        = "demo_rds_inbound"
-  description = "Allow inbound from web tier"
-  vpc_id      = data.terraform_remote_state.networking.outputs.vpc_id
+# resource "aws_security_group" "rds_sg" {
+#   name        = "demo_rds_inbound"
+#   description = "Allow inbound from web tier"
+#   vpc_id      = data.terraform_remote_state.networking.outputs.vpc_id
 
-  tags = {
-    Name = "demo_rds_inbound"
-  }
+#   tags = {
+#     Name = "demo_rds_inbound"
+#   }
 
-  // allows traffic from the SG itself
-  ingress {
-    from_port = 0
-    to_port   = 0
-    protocol  = "-1"
-    self      = true
-  }
+#   // allows traffic from the SG itself
+#   ingress {
+#     from_port = 0
+#     to_port   = 0
+#     protocol  = "-1"
+#     self      = true
+#   }
 
-  // allow traffic for TCP 3306
-  ingress {
-    from_port       = 3306
-    to_port         = 3306
-    protocol        = "tcp"
-    security_groups = [aws_security_group.webapp_http_inbound_sg.id]
-  }
+#   // allow traffic for TCP 3306
+#   ingress {
+#     from_port       = 3306
+#     to_port         = 3306
+#     protocol        = "tcp"
+#     security_groups = [aws_security_group.webapp_http_inbound_sg.id]
+#   }
 
-  // outbound internet access
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-}
+#   // outbound internet access
+#   egress {
+#     from_port   = 0
+#     to_port     = 0
+#     protocol    = "-1"
+#     cidr_blocks = ["0.0.0.0/0"]
+#   }
+# }

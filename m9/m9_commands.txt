@@ -8,7 +8,7 @@ consul agent -bootstrap -config-file="config/consul-config.hcl" -bind="127.0.0.1
 # Let's set the Consul token to Mary Moe
 # Replace SECRETID_VALUE with Mary Moe's secret ID
 # Linux and MacOS
-export CONSUL_HTTP_TOKEN=SECRETID_VALUE
+export CONSUL_HTTP_TOKEN=803c4cc5-641b-3b40-de3c-37b46272b6bd
 
 # Windows
 $env:CONSUL_HTTP_TOKEN="SECRETID_VALUE"

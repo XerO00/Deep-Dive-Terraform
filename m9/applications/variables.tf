@@ -1,10 +1,8 @@
-
 variable "region" {
   default = "us-east-1"
 }
 
 # Consul variables
-
 variable "consul_address" {
   type        = string
   description = "Address of Consul server"
@@ -25,7 +23,6 @@ variable "consul_datacenter" {
 
 
 # Application variables
-
 variable "ip_range" {
   default = "0.0.0.0/0"
 }
