@@ -34,6 +34,7 @@ consul acl bootstrap
 # Linux and MacOS
 export CONSUL_HTTP_TOKEN="803c4cc5-641b-3b40-de3c-37b46272b6bd"
 
+export CONSUL_HTTP_TOKEN=ac57a92d-faab-27a2-9eef-4ae3f350852c
 # Windows
 $env:CONSUL_HTTP_TOKEN="803c4cc5-641b-3b40-de3c-37b46272b6bd"
 
