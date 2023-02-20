@@ -23,6 +23,8 @@ pipeline {
     stages {
         stage('NetworkInit'){
             steps {
+                echo 'inside init'
+                sh 'dir'
                 dir('m9/networking/'){
                     sh 'terraform --version'
                     sh "terraform init --backend-config='path=${params.CONSUL_STATE_PATH}'"
