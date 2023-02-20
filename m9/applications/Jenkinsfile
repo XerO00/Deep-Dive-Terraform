@@ -31,14 +31,14 @@ pipeline {
         }
         stage('NetworkValidate'){
             steps {
-                dir('m9/applications/'){
+                dir('m9/networking/'){
                     sh 'terraform validate'
                 }
             }
         }
         stage('NetworkPlan'){
             steps {
-                dir('m9/applications/'){
+                dir('m9/networking/'){
                     script {
                         try {
                            sh "terraform workspace new ${params.WORKSPACE}"
@@ -60,14 +60,14 @@ pipeline {
                         apply = true
                     } catch (err) {
                         apply = false
-                        dir('m9/applications/'){
+                        dir('m9/networking/'){
                             // sh "terraform destroy -auto-approve"
                             echo "destroying"
                         }
                         currentBuild.result = 'UNSTABLE'
                     }
                     if(apply){
-                        dir('m9/applications/'){
+                        dir('m9/networking/'){
                             unstash "terraform-networking-plan"
                             // sh 'terraform apply terraform-networking.tfplan'
                             echo "applying"
