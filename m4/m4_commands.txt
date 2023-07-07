@@ -87,3 +87,7 @@ terraform plan
 
 AccessorID:       c153f5af-e9c7-e90f-cd09-9f070c10b234
 SecretID:         ded37133-a286-cb95-dc4f-6715c771afb1
+
+
+mary_token_accessor_id = "dbb2195c-67bc-70bc-6455-e8c8f9820241"
+sally_token_accessor_id = "d6b78eb5-541b-3abe-a3de-b8fc6095560d"
