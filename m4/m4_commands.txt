@@ -84,3 +84,6 @@ terraform plan
 ## for the next module
 
 ## We are going to keep using the infrastructure in AWS for m5, so don't destroy it!
+
+AccessorID:       c153f5af-e9c7-e90f-cd09-9f070c10b234
+SecretID:         ded37133-a286-cb95-dc4f-6715c771afb1
